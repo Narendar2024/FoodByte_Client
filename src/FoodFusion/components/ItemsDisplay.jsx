@@ -6,7 +6,6 @@ import { itemData } from '../data';
 const ItemsDisplay = () => {
     // eslint-disable-next-line no-unused-vars
     const [displayItem, setDisplayItem] = useState(itemData);
-    console.log("This is data", displayItem);
     return (
 
         <div className="itemSection">
