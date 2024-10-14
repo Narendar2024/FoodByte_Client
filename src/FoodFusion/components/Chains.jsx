@@ -2,10 +2,15 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { API_URL } from '../api.js';
+import { FaCircleArrowRight } from "react-icons/fa6";
+import { FaCircleArrowLeft } from "react-icons/fa6";
+import { MagnifyingGlass } from 'react-loader-spinner';
+
 
 const Chains = () => {
     const [vendorData, setVendorData] = useState([]);
     const [scrollPosition, setScrollPosition] = useState(0);
+    const [loading, setLoading] = useState(true);
 
     const vendorFirmHandler = async () => {
         try {
@@ -13,9 +18,11 @@ const Chains = () => {
             const newData = await response.json();
             setVendorData(newData);
             console.log("Data coming from API", newData);
+            setLoading(false);
         } catch (error) {
             alert("Failed to fetch data");
             console.error("Failed to fetch data");
+            setLoading(true);
         }
     };
 
@@ -42,9 +49,31 @@ const Chains = () => {
 
     return (
         <>
+            <div className="loaderSection">
+                {loading && <>
+                    <div className='loader'>
+                        Your 🍲is loading...
+                    </div>
+                    <MagnifyingGlass
+                        visible={true}
+                        height="80"
+                        width="80"
+                        ariaLabel="magnifying-glass-loading"
+                        wrapperStyle={{}}
+                        wrapperClass="magnifying-glass-wrapper"
+                        glassColor="#c0efff"
+                        color="#e15b64"
+                    />
+                </>
+                }
+            </div>
             <div className="btnSection">
-                <button onClick={() => handleScroll("left")}>Left</button>
-                <button onClick={() => handleScroll("right")}>Right</button>
+                <button onClick={() => handleScroll("left")} className='btnIcons'>
+                    <FaCircleArrowLeft />
+                </button>
+                <button onClick={() => handleScroll("right")} className='btnIcons'>
+                    <FaCircleArrowRight />
+                </button>
             </div>
             <h3>Top restaurant chains in Hyderabad</h3>
 

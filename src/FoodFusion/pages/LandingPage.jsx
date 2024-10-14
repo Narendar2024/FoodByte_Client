@@ -5,7 +5,6 @@ import ItemsDisplay from '../components/ItemsDisplay';
 import Chains from '../components/Chains';
 import FirmCollections from '../components/FirmCollections';
 
-
 const LandingPage = () => {
     return (
         <div>
