@@ -255,3 +255,35 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+
+/* Responsive */
+
+@media(max-width:576px){
+    .topBarSection{
+        padding: 0 20px;
+    }
+    .landingSection{
+        padding: 10;
+    }
+    .itemSection{
+        margin-top: 80px;
+    }
+    h3{
+        font-weight: 500;
+        font-size: medium;
+        color: rgb(34, 30, 30);
+    }
+    .chainSection{
+        height: 190px;
+
+    }
+    .vendorBox img {
+        width: 260px;
+        height: 180px;
+        flex: 0 0 auto;
+        margin-right: 30px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+}
